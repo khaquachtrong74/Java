@@ -4,6 +4,7 @@ public class Exercise1 {
     static Scanner sc = new Scanner(System.in);
     public static void main(String args[]){  
         getAndDisplayInformation();
+        System.out.println("heheboiz");
     } 
     static void getAndDisplayInformation(){
         System.out.print("Moi ban nhap ten: ");
