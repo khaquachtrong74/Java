@@ -1,4 +1,4 @@
-
+package exercise3;
 
 public abstract class Student {
     private String sName;

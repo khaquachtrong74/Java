@@ -1,3 +1,4 @@
+package exercise3;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-
+package exercise3;
 
 public class MathStudent extends Student{
     private String sID;

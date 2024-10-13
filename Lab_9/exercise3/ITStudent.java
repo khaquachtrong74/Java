@@ -1,4 +1,4 @@
-
+package exercise3;
 
 public class ITStudent extends Student{
     private int sID;
