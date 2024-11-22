@@ -10,35 +10,30 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
-// import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-// import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-// import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class QuanLiHocVien {
-    private static List<HocVien> list = new ArrayList<>();
+    private static final List<HocVien> list = new ArrayList<>();
 
     public void addHocVienTuFile(String fileName) throws IOException, ParseException {
-        BufferedReader reader = new BufferedReader(new FileReader(fileName));
-        String hoTen, queQuan, ngaySinh, line;
-
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(",");
-            hoTen = parts[0].trim();
-            queQuan = parts[1].trim();
-            ngaySinh = parts[2].trim();
-            System.out.println("Ngày sinh đọc được: " + ngaySinh);
-            list.add(new HocVien(hoTen, queQuan, ngaySinh));
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String hoTen, queQuan, ngaySinh, line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                hoTen = parts[0].trim();
+                queQuan = parts[1].trim();
+                ngaySinh = parts[2].trim();
+                System.out.println("Ngày sinh đọc được: " + ngaySinh);
+                list.add(new HocVien(hoTen, queQuan, ngaySinh));
+            }
         }
-        reader.close();
     }
 
     public void nhapDiemHocVien(int maHV, float diemToan, float diemLy, float diemHoa) {
@@ -86,23 +81,18 @@ public class QuanLiHocVien {
     }
 
     public void sortTheoDiem() {
-        Collections.sort(list, new Comparator<HocVien>() {
-            @Override
-            public int compare(HocVien acc1, HocVien acc2) {
-                return Double.compare(acc1.tinhDiemTrungBinh(), acc2.tinhDiemTrungBinh());
-            }
-        });
+        Collections.sort(list, (HocVien acc1, HocVien acc2) -> Double.compare(acc1.tinhDiemTrungBinh(), acc2.tinhDiemTrungBinh()));
     }
 
     public void xacDinhHocVienTot(String fileName) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-        for (HocVien hv : list) {
-            if (hv.isScholarship()) {
-                double dtb = hv.tinhDiemTrungBinh();
-                writer.write(String.format("%d - %s - %.2f%n", hv.getMaHV(), hv.getHoTen(), dtb));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (HocVien hv : list) {
+                if (hv.isScholarship()) {
+                    double dtb = hv.tinhDiemTrungBinh();
+                    writer.write(String.format("%d - %s - %.2f%n", hv.getMaHV(), hv.getHoTen(), dtb));
+                }
             }
         }
-        writer.close();
     }
 
     public List<HocVien> findHocVienOptimize(){
@@ -150,18 +140,17 @@ public class QuanLiHocVien {
 
     // sửa lại cho giống thầy
     public void addHocVienTuFileScanner(String fileName) throws IOException {
-        Scanner scanner = new Scanner(new File(fileName));
-        String hoTen, queQuan, ngaySinh;
-
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] parts = line.split(",");
-            hoTen = parts[0].trim();
-            queQuan = parts[1].trim();
-            ngaySinh = parts[2].trim();
-            System.out.println("Ngày sinh đọc được: " + ngaySinh);
-            list.add(new HocVien(hoTen, queQuan, ngaySinh));
+        try (Scanner scanner = new Scanner(new File(fileName))) {
+            String hoTen, queQuan, ngaySinh;
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+                hoTen = parts[0].trim();
+                queQuan = parts[1].trim();
+                ngaySinh = parts[2].trim();
+                System.out.println("Ngày sinh đọc được: " + ngaySinh);
+                list.add(new HocVien(hoTen, queQuan, ngaySinh));
+            }
         }
-        scanner.close();
     }
 }
