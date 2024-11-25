@@ -1,0 +1,12 @@
+2. Hệ thống đặt vé xem phim
+Tạo các lớp:
+Movie: Thuộc tính title, genre, duration.
+Theater: Thuộc tính name, seatingCapacity, availableSeats.
+Ticket: Thuộc tính ticketId, movie, theater, price, và phương thức displayTicketInfo().
+Tạo lớp TicketBookingSystem với:
+Danh sách các phim và rạp chiếu.
+Phương thức:
+addMovie(), addTheater().
+bookTicket(): Kiểm tra số ghế trống trước khi đặt vé.
+cancelTicket(): Hủy vé và tăng số ghế trống.
+viewAllBookings(): Hiển thị danh sách vé đã đặt.

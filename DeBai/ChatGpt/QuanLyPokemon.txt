@@ -1,0 +1,9 @@
+3. Trò chơi quản lý Pokemon
+Tạo các lớp:
+Pokemon: Thuộc tính name, level, type, và phương thức attack(), defend().
+Trainer: Thuộc tính name, age, danh sách Pokemon mà người chơi sở hữu.
+Battle: Tổ chức trận đấu giữa hai Pokemon.
+Tạo chương trình chính:
+Cho phép người dùng tạo Trainer và thêm Pokemon vào đội của họ.
+Tổ chức các trận đấu giữa các Pokemon, 
+tính toán điểm kinh nghiệm và tăng cấp (level) dựa trên kết quả.

@@ -1,0 +1,11 @@
+1. Quản lý công ty
+Tạo các lớp:
+Employee (nhân viên): Có các thuộc tính name, id, salary.
+Manager: Kế thừa từ Employee, thêm thuộc tính department và phương thức assignTask().
+Developer: Kế thừa từ Employee, thêm thuộc tính programmingLanguage.
+Tạo lớp Company với:
+Danh sách các nhân viên.
+Các phương thức:
+addEmployee(): Thêm nhân viên vào danh sách.
+calculateTotalSalary(): Tính tổng lương của toàn bộ nhân viên.
+displayAllEmployees(): Hiển thị thông tin toàn bộ nhân viên, phân biệt loại nhân viên (quản lý, lập trình viên).
