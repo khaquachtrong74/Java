@@ -8,17 +8,17 @@ public class QuanLyTaiKhoan {
     private static List<TaiKhoan> dsTaiKhoan = new ArrayList<>();
 
     public static void menu() {
-        System.out.println("\n1. Xem thông tin tài khoản");
-        System.out.println("2. Tra cứu tài khoản");
-        System.out.println("3. Nộp tiền");
-        System.out.println("4. Rút tiền");
-        System.out.println("5. Tính lãi");
-        System.out.println("6. Thoát");
-        System.out.print("Chọn: ");
+        System.out.println("\n1. Xem Thong tin tai khoan");
+        System.out.println("2. Tra cuu tai khoan");
+        System.out.println("3. Nop tien");
+        System.out.println("4. Rut tien");
+        System.out.println("5. Tinh lai");
+        System.out.println("6. Thoat");
+        System.out.print("Chon: ");
     }
 
     private static void xemThongTin() {
-        for (TaiKhoan tk : dsTaiKhoan) {
+        for(TaiKhoan tk : dsTaiKhoan){
             System.out.println(tk);
         }
     }
@@ -85,19 +85,20 @@ public class QuanLyTaiKhoan {
 
     public static void program() {
         menu();
-        int choice = Integer.parseInt(CauHinh.SC.nextLine());
-        CauHinh.SC.nextLine(); // clear buffer
+        int choice;
+        // CauHinh.SC.nextLine(); // clear buffer
         while (true) {
+            choice = Integer.parseInt(CauHinh.SC.nextLine());
             switch (choice) {
                 case 1 -> xemThongTin();
                 case 2 -> traCuu();
                 case 3 -> nopTien();
                 case 4 -> rutTien();
                 case 0 -> {
-                    System.out.println("Thoát chương trình.");
+                    System.out.println("Thoat chương trinh.");
                     return;
                 }
-                default -> System.out.println("Lựa chọn không hợp lệ.");
+                default -> System.out.println("Lua chon không hop le.");
             }
         }
 

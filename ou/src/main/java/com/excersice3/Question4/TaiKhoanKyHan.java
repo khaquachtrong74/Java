@@ -36,10 +36,10 @@ public class TaiKhoanKyHan extends TaiKhoan {
     public LocalDate getNgayDaoHan() {
         return ngayDaoHan;
     }
+
     @Override
     public String toString() {
-        return super.toString() + ", Kỳ hạn: " + kyHan + ", Ngày đáo hạn: " + ngayDaoHan;
+        return super.toString() + ", Ky han: " + kyHan + ", Ngay đao han: " + ngayDaoHan;
     }
-
 
 }
