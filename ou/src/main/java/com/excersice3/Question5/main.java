@@ -29,7 +29,7 @@ public class main {
                     String gioiTinh = CauHinhQ5.SC.nextLine();
                     System.out.print("Số điện thoại: ");
                     String soDienThoai = CauHinhQ5.SC.nextLine();
-                    System.out.print("Bộ phận (A, B, C hoặc để trống nếu không thuộc bộ phận nào): ");
+                    System.out.print("Bộ phận (A, B, C.....hoặc để trống nếu không thuộc bộ phận nào): ");
                     String boPhan = CauHinhQ5.SC.nextLine();
                     
                     NhanVien nhanVien = quanLyNhanVien.taoNhanVien(boPhan, hoTen, cmnd, queQuan, gioiTinh, soDienThoai);
