@@ -4,15 +4,19 @@
  */
 
 package com.example;
-
+ 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 // use thread
-class GamePanel extends JPanel implements Runnable {
+class GamePanel extends JPanel implements Runnable, ActionListener {
     // SCREEN SETTINGS
     final int originalTileSize = 16; // 16x16 default size of player and npc.
     final int scale = 3;
@@ -33,6 +37,24 @@ class GamePanel extends JPanel implements Runnable {
     int playerY = 100;
     int playerSpeed = 4;
 
+
+    // set terminater's default position
+    int terminaterX = 300;
+    int terminaterY = 150;
+    int terminaterSpeed = 7;    
+
+
+
+    // player and objects
+    private Player player;
+    private Terminater terminater;
+
+    // set up for terminal move
+    private Timer timer;
+
+    // stage Game
+    private boolean gameOver = false; 
+
     public GamePanel() {
         // set size of panel
         this.setPreferredSize(new java.awt.Dimension(screenWidth, screenHeight));
@@ -42,6 +64,11 @@ class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         // Event focus
         this.setFocusable(true);
+        this.player = new Player(playerX, playerY, tileSize, tileSize, Color.red, "Player 1");
+        this.terminater = new Terminater(300, 300, tileSize, Color.BLUE, "Terminater");
+
+        timer = new Timer(30, this);
+        timer.start(); // call actionPerformed
     }
 
     public void startGameThread() {
@@ -92,16 +119,20 @@ class GamePanel extends JPanel implements Runnable {
 
     // handel Key press by player
     public void update() {
+        if(gameOver ) return; // stop if game is over
         if (keyH.upPressed) {
-            playerY -= playerSpeed;
+            player.move(0, -playerSpeed);
+            // playerY -= playerSpeed;
         } else if (keyH.downPressed) {
-            playerY += playerSpeed;
+            player.move(0, playerSpeed);
+            // playerY += playerSpeed;
         } else if (keyH.leftPreassed) {
-            playerX -= playerSpeed;
+            player.move(-playerSpeed,0);
+            // playerX -= playerSpeed;
         } else if(keyH.rightPressed) {
-            playerX += playerSpeed;
+            player.move(playerSpeed, 0);
+            // playerX += playerSpeed;
         }
-
     }
 
     // JPannel : use to draw
@@ -110,11 +141,34 @@ class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         // change graphics -> graphics2D
         Graphics2D g2 = (Graphics2D) g;
-        // set colors
-        g2.setColor(Color.red);
-        // draw rectangle _ player
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        
+        player.draw(g2);
+        
+        terminater.draw(g2);
+
+        // check if 2 objects is touch
+        if(terminater.getBounds().intersects(player.getBounds())){
+            System.out.println("Game Over!");
+            gameOver = true;
+        }
+        if(gameOver){
+            g2.setColor(Color.black);
+            g2.setFont(new Font("Arial", Font.BOLD, 20));
+            g2.drawString("Game Over, Cut nhe!", 250, 250);
+        }
         g2.dispose();
+    }
+
+
+    // Handle terminal move up and down
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(gameOver) return;
+        terminater.move(0,terminaterSpeed);
+        if(terminater.getPosY() <= 0 || terminater.getPosY() >= getHeight() - terminater.getWidth()){
+            terminaterSpeed = - terminaterSpeed; // Change direction
+        }
+        repaint();
     }
 
 }
