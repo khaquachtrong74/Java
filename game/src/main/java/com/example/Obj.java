@@ -45,6 +45,14 @@ public abstract class Obj<T extends Shape> {
     protected int getTileSize() {
         return tileSize;
     }
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
     /**
      * Belong to Obj
      * @return 

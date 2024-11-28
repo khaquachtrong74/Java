@@ -24,9 +24,9 @@ public class Terminater extends Obj{
         g.setColor(this.getColor());
         g.fillOval(this.getPosX(), this.getPosY(), this.getTileSize(), this.getTileSize());
 
-        g.setColor(Color.DARK_GRAY);
+        g.setColor(Color.white);
         g.setFont(new Font("Arial", Font.PLAIN, 12));
-        g.drawString(getName(), getPosX() + getDiameter()/2 - g.getFontMetrics().stringWidth(getName()),
+        g.drawString(getName(), getPosX() + getDiameter() - g.getFontMetrics().stringWidth(getName()),
         getPosY() + getDiameter() + 15);
     }
 
