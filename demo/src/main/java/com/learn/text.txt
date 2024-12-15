@@ -1,0 +1,33 @@
+KHỞI TẠO:
+  - Thanh trái (paddleLeft) tại (x1, y1)
+  - Thanh phải (paddleRight) tại (x2, y2)
+  - Bóng (ball) tại (bx, by) với vận tốc (vx, vy)
+  - Kích thước màn chơi: width, height
+  - Điểm số: scoreLeft = 0, scoreRight = 0
+
+VÒNG LẶP CHÍNH:
+  1. Nhận input để di chuyển paddleLeft và paddleRight:
+      - Nếu người chơi nhấn phím lên/xuống, thay đổi y1 hoặc y2.
+
+  2. Cập nhật vị trí bóng:
+      - bx = bx + vx
+      - by = by + vy
+
+  3. Kiểm tra va chạm bóng:
+      - Nếu bóng chạm vào mép trên hoặc mép dưới:
+          - vy = -vy
+      - Nếu bóng chạm vào paddleLeft hoặc paddleRight:
+          - vx = -vx (tăng tốc độ bóng nếu muốn)
+
+  4. Kiểm tra bóng ra ngoài màn chơi:
+      - Nếu bx < 0:
+          - scoreRight += 1
+          - Đặt lại vị trí bóng
+      - Nếu bx > width:
+          - scoreLeft += 1
+          - Đặt lại vị trí bóng
+
+  5. Hiển thị trạng thái trò chơi (bóng, thanh, điểm số).
+
+KẾT THÚC:
+  - Khi scoreLeft hoặc scoreRight đạt điểm tối đa, dừng trò chơi.

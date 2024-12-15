@@ -9,7 +9,7 @@ public class Main {
         // prohibit reset size
         window.setResizable(false);// tranh viec chinh kich co
         // name
-        window.setTitle("Learning make game");
+        window.setTitle("Destroyer");
         // Panel game
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
