@@ -4,10 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.excersice1</groupId>
+    <groupId>com.excersice</groupId>
+    <!-- <groupId>com.excersice2</groupId> -->
     <artifactId>ou</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>excersice1</module>
+        <module>excersice2</module>
+        <module>excersice3</module>
+        <!-- <module>excersice4</module> -->
+    </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
