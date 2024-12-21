@@ -26,7 +26,8 @@ public class demo {
         line();
         /*Sap xep giam dan theo tien luon */
         dsgv.traLuong();
-        dsgv.sapXep().forEach(gv -> System.out.println(gv));
+        dsgv.sapXep();
+        dsgv.hienThi();
     //     System.out.println("Xoa theo ten, hoc ham va hoc vi");
     //     /*
     //      * Cau Hinh tu file com.excersice2.Quest5

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class QLGiangVien {
     private List<GiangVien> ds = new ArrayList<>();
@@ -50,8 +49,8 @@ public class QLGiangVien {
     /*
      * Sắp xếp theo lương giảm dần
      */
-    public List<GiangVien> sapXep(){
-        return this.ds.stream().sorted(Comparator.comparing(GiangVien::tinhLuong).reversed()).collect(Collectors.toList());
+    public void sapXep(){
+        this.ds.sort(Comparator.comparing(GiangVien::tinhLuong).reversed());
     }
 }
 
