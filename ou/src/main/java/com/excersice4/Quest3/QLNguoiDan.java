@@ -28,4 +28,13 @@ public class QLNguoiDan {
     public NguoiDan timKiem(String canCuoc){
         return this.ds.stream().filter(nguoiDan -> nguoiDan.getCanCuoc().equals(canCuoc)).findFirst().get();
     }
+    // in nguoi nuoc ngoai
+    public void hienThiNgNuocNgoai(){
+        this.ds.stream().filter(p -> p instanceof NguoiDanNuocNgoai)
+        .forEach(nd -> nd.hienThi());
+    }
+    public void hienThiNgTrongNuoc(){
+        this.ds.stream().filter(p -> p instanceof NguoiDanNuocTrong)
+        .forEach(nd -> nd.hienThi());
+    }
 }
