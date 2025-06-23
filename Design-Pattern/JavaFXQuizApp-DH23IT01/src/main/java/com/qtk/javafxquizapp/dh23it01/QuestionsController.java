@@ -28,18 +28,20 @@ public class QuestionsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Connection conn = null;
         try {
             // TODO
-            Class.forName("com.mysql.cj.jbdc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             
-            Connection conn = DriverManager.getConnection("jbdc://localhost/quizdb", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
             
             Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM category");
+            ResultSet rs = stm.executeQuery("SELECT * FROM new_table");
             while(rs.next())
             {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
+                System.out.println(name);
             }
             rs.close();
             conn.close();
