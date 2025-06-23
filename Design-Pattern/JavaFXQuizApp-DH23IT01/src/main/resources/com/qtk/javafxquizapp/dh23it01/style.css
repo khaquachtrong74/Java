@@ -1,0 +1,29 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 23, 2025, 1:39:48 PM
+    Author     : admin
+*/
+
+.Main{
+    -fx-background-color: black;
+    -fx-alignment: CENTER;
+    -fx-spacing: 10;
+}
+.Hquiz{
+    -fx-fill: white;
+    -fx-font-size: 50;
+    -fx-stroke: green;
+    -fx-stroke-width:5;
+}
+.btn{
+    -fx-background-color: black;
+    
+    -fx-text-fill: green;
+}
+.Input{
+    
+    -fx-pref-width: 250;
+}
