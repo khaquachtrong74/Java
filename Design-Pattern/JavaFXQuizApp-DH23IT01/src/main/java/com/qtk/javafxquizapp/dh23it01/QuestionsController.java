@@ -4,6 +4,9 @@
  */
 package com.qtk.javafxquizapp.dh23it01;
 
+import com.qtk.pojo.Category;
+import com.qtk.services.CategoryService;
+import com.qtk.services.LevelService;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Driver;
@@ -12,9 +15,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
+import com.qtk.pojo.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -26,29 +37,32 @@ public class QuestionsController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML private ComboBox<Category> cbCates;
+    @FXML private ComboBox<Level> cbLevels;
+    @FXML private VBox vboxChoices = new VBox();
+    
+    private static final CategoryService catesServices = new CategoryService();
+    private static final LevelService levelServices = new LevelService();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Connection conn = null;
-        try {
-            // TODO
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        try{
+            this.cbCates.setItems(FXCollections.observableArrayList(catesServices.getCates()));
+            this.cbLevels.setItems(FXCollections.observableArrayList(levelServices.getLevels()));
             
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
-            
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM new_table");
-            while(rs.next())
-            {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                System.out.println(name);
-            }
-            rs.close();
-            conn.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(QuestionsController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(QuestionsController.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (Exception e){
+            System.err.println(e);
         }
     }    
+    public void handleAddChoice(ActionEvent event){
+        HBox h = new HBox();
+        h.getStyleClass().add("style");
+        
+        RadioButton rd = new RadioButton();
+        
+        TextField txtf = new TextField();
+        txtf.setPromptText("Nội dung nhập lựa chọn");
+        txtf.getStyleClass().add("Input");
+        h.getChildren().addAll(rd, txtf);
+        this.vboxChoices.getChildren().add(h);
+    }
 }

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="Main" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.qtk.javafxquizapp.dh23it01.PrimaryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="264.0" styleClass="Main" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.qtk.javafxquizapp.dh23it01.PrimaryController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Hquiz" text="Quizz App" />
       <Button mnemonicParsing="false" onAction="#handleLamThoiNao" styleClass="btn" text="Thực thi" />
       <Button layoutX="284.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleThucThi" styleClass="btn" text="Kiểm tra" />
       <Button layoutX="284.0" layoutY="244.0" mnemonicParsing="false" styleClass="btn" text="Chương trình sụp đổ" />
       <Button layoutX="284.0" layoutY="231.0" mnemonicParsing="false" styleClass="btn" text="Hahaha calamuchi" />
+      <ComboBox fx:id="cbThemes" onAction="#changeThemes" prefWidth="150.0" promptText="Đăng nhập" styleClass="btn" />
    </children>
 </VBox>

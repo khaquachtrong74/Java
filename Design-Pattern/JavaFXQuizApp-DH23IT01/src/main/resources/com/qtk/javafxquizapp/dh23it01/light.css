@@ -8,8 +8,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 
 .Main{
+    -fx-background-color: white;
     -fx-alignment: CENTER;
     -fx-spacing: 10;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+
 }
 .Hquiz{
     -fx-fill: white;
@@ -18,8 +22,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-stroke-width:5;
 }
 .btn{
-    -fx-background-color: black;
- }
+    -fx-background-color: #E0E0E0;
+    -fx-font-size: 14;
+    -fx-text-fill: red;
+}
 .Input{
     
     -fx-pref-width: 250;
