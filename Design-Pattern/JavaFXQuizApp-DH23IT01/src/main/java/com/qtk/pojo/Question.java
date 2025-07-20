@@ -37,6 +37,25 @@ public class Question {
         private Level level;
         private List<Choice> choices = new ArrayList<>();
         
+        public Builder(String content, Category c, Level l) throws Exception{
+            if(content == null || content.isEmpty() || c == null || l == null)
+                throw new Exception("Invalid Value!");
+            this.content = content;
+            this.category = c;
+            this.level = l;
+        }
+        public Builder addHint(String hint){
+            this.hint = hint;
+            return this;
+        }
+        public Builder addImage(String image){
+            this.image = image;
+            return this;
+        }
+        public Builder addChoice(Choice c){
+            this.choices.add(c);
+            return this;
+        }
         public Question build(){
             return new Question(this);
         }
@@ -123,6 +142,20 @@ public class Question {
      */
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    /**
+     * @return the choices
+     */
+    public List<Choice> getChoices() {
+        return choices;
+    }
+
+    /**
+     * @param choices the choices to set
+     */
+    public void setChoices(List<Choice> choices) {
+        this.choices = choices;
     }
     
 }

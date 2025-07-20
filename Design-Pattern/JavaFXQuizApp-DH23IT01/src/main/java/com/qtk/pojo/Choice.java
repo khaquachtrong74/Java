@@ -13,6 +13,16 @@ public class Choice {
     private String content;
     private boolean is_correct;
 
+    public Choice(int id, String content, boolean is_correct) {
+        this.id = id;
+        this.content = content;
+        this.is_correct = is_correct;
+    }
+    public Choice(String content, boolean is_correct) {
+        this.content = content;
+        this.is_correct = is_correct;
+    }
+    
     /**
      * @return the id
      */
