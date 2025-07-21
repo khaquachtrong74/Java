@@ -44,11 +44,14 @@ public class Question {
             this.category = c;
             this.level = l;
         }
+<<<<<<< HEAD
         public Builder(int id, String content) throws Exception{
             
             this.content = content;
             this.id = id;
         }
+=======
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
         public Builder addHint(String hint){
             this.hint = hint;
             return this;
@@ -61,10 +64,13 @@ public class Question {
             this.choices.add(c);
             return this;
         }
+<<<<<<< HEAD
         public Builder addAllChoice(List<Choice> choices){
             this.choices.addAll(choices);
             return this;
         }
+=======
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
         public Question build(){
             return new Question(this);
         }

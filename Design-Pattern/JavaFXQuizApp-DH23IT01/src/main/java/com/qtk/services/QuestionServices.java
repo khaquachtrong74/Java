@@ -3,18 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.qtk.services;
+<<<<<<< HEAD
 import com.qtk.pojo.Category;
 import com.qtk.pojo.Choice;
+=======
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.qtk.pojo.Question;
 import com.qtk.utils.JdbcConnector;
+<<<<<<< HEAD
 import static com.qtk.utils.config.questionServices;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
 
 /**
  *
@@ -51,6 +57,7 @@ public class QuestionServices {
             cnn.rollback();
         }
     }
+<<<<<<< HEAD
     public List<Question> getQuestions() throws SQLException, Exception {
         // B2: thiết lập kết nối
         Connection conn = JdbcConnector.getInstance().connect();
@@ -123,3 +130,6 @@ public class QuestionServices {
         return choices;
      }
 }
+=======
+}
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4

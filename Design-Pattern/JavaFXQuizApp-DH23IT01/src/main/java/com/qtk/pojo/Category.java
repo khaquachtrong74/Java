@@ -4,14 +4,21 @@
  */
 package com.qtk.pojo;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
 /**
  *
  * @author admin
  */
+<<<<<<< HEAD
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+=======
+>>>>>>> 388dd9927440df30ddcdf1e6eb35113e30aabff4
 
 public class Category {
     private int id;
