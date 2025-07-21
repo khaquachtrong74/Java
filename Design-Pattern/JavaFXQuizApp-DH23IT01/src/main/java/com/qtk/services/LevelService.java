@@ -25,7 +25,7 @@ public class LevelService {
 
         // B3: thực thi truy vân
         Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery("SELECT * FROM category");
+        ResultSet rs = stm.executeQuery("SELECT * FROM level");
 
         List<Level> cates = new ArrayList<>();
         while (rs.next()) {

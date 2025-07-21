@@ -6,4 +6,6 @@ module com.qtk.javafxquizapp.dh23it01 {
     requires lombok;
     opens com.qtk.javafxquizapp.dh23it01 to javafx.fxml;
     exports com.qtk.javafxquizapp.dh23it01;
+    exports com.qtk.pojo;
+    exports com.qtk.services;
 }
