@@ -29,7 +29,9 @@ cd game
 mvn package
 ```
 
-`buildMvn.bash` at the root builds the Maven projects in sequence.
+`buildMvn.bash` at the root does **not** build anything — it runs `mvn archetype:generate`
+to *scaffold a new* Maven project (`buildMvn <groupId> <artifactId> <package>`). The name
+is misleading.
 
 ## Stack
 
@@ -37,9 +39,10 @@ Java · Maven · JavaFX · Swing (AWT/Swing rendering plus a hand-rolled physics
 
 ## Notes
 
-- **`target/` build output is committed** in a few projects (`demo`, `ou`,
-  `2351050070_QuachTrongKha_De04`). The `.gitignore` only excludes one project's `target/`.
-  These should be removed from the index and the ignore rule generalised to `target/`.
+- **Six `target/` build artifacts are committed**: `2351050070_QuachTrongKha_De04/target/maven-status/…`,
+  `demo/target/classes/com/learn/text.txt`, and four `ou/target/classes/com/practice/midtern/…/README.md`.
+  The `.gitignore` excludes only one project's `target/`, so the rest slipped in. Generalise the
+  rule to `target/` and remove them from the index.
 - `.java` counts per folder (approximate, includes reference material):
   `ou/` ~131, `Nhut_Ans/` ~86, `Design-Pattern/` ~24.
 
